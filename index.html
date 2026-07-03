@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MALAL — ملال</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Lalezar&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-ar" lang="ar">ملال</span>
+        <span class="logo-en">MALAL</span>
+      </a>
+      <nav class="links" id="navLinks">
+        <a href="#drop">Shop</a>
+        <a href="#story">Story</a>
+        <a href="#drop">Drops</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <button class="bag-btn" id="bagBtn">Bag (<span id="bagCount">0</span>)</button>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-pattern" id="heroPattern"></div>
+    <div class="hero-content">
+      <p class="eyebrow">SS26 — NO REPEATS</p>
+      <h1>Bored is not<br>an option.</h1>
+      <p class="hero-sub"><span class="ar" lang="ar">ملال</span> means boredom. We make clothes for people done with it.</p>
+      <a href="#drop" class="btn-primary">Shop the Drop</a>
+    </div>
+  </section>
+
+  <!-- ===================== TICKER ===================== -->
+  <div class="ticker">
+    <div class="ticker-track">MALAL • ملال • NO BOREDOM • MALAL • ملال • NO BOREDOM • MALAL • ملال • NO BOREDOM • &nbsp;MALAL • ملال • NO BOREDOM • MALAL • ملال • NO BOREDOM • MALAL • ملال • NO BOREDOM • &nbsp;</div>
+  </div>
+
+  <!-- ===================== PRODUCT DROP ===================== -->
+  <section class="drop" id="drop">
+    <div class="drop-head">
+      <div>
+        <p class="eyebrow">Drop 03 — Featured</p>
+        <h2>New this week</h2>
+      </div>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- ===================== STORY ===================== -->
+  <section class="story" id="story">
+    <div class="story-text">
+      <p class="eyebrow">The Name</p>
+      <h2><span class="ar" lang="ar">ملال</span> / Malal</h2>
+      <p>Malal is an old word for boredom — the slow, grey feeling of doing the same thing on repeat. We named the brand after the thing we're against.</p>
+      <p>Every piece is designed to break a pattern, not fit one. No two drops repeat. No two prints match. If it feels routine, we scrap it.</p>
+    </div>
+    <div class="story-pattern"><span lang="ar">ملال</span></div>
+  </section>
+
+  <!-- ===================== NEWSLETTER ===================== -->
+  <section class="newsletter" id="contact">
+    <h2>Get the next drop first.</h2>
+    <form id="newsletterForm">
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="you@email.com" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <p id="formMsg"></p>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <span class="foot-logo" lang="ar">ملال</span>
+    <span>Lahore, Pakistan</span>
+    <span>&copy; 2026 Malal. All rights reserved.</span>
+  </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

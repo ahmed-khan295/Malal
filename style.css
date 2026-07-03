@@ -1,0 +1,427 @@
+  /* ============================================
+     TOKENS — every color/font decision lives here
+     ============================================ */
+  :root{
+    --bg:#14151f;        /* ink-indigo base, not plain black */
+    --bg-alt:#1b1d2b;
+    --card:#1c1e2c;
+    --ink:#ede4d3;        /* warm sand text */
+    --ink-dim:#a49b88;
+    --gold:#d6a83c;        /* signature accent */
+    --rust:#a2472b;        /* used sparingly, tags only */
+    --line:#2a2c3a;
+
+    --display:'Big Shoulders Display', sans-serif;
+    --arabic:'Lalezar', sans-serif;
+    --body:'Work Sans', sans-serif;
+    --mono:'JetBrains Mono', monospace;
+  }
+
+  /* ============================================
+     BASICS — box model reset
+     ============================================ */
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.6;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:2px;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  section{ padding:100px 8vw; }
+
+  h1,h2{
+    font-family:var(--display);
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    line-height:1.05;
+  }
+
+  /* ============================================
+     NAV
+     ============================================ */
+  header.nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(20,21,31,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 8vw;
+  }
+
+  .logo{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .logo-ar{
+    font-family:var(--arabic);
+    font-size:26px;
+    color:var(--gold);
+  }
+  .logo-en{
+    font-family:var(--display);
+    font-weight:700;
+    letter-spacing:3px;
+    font-size:16px;
+  }
+
+  .links{
+    display:flex;
+    gap:36px;
+  }
+  .links a{
+    font-size:14px;
+    color:var(--ink-dim);
+    transition:color 0.2s;
+  }
+  .links a:hover{ color:var(--gold); }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+
+  .bag-btn{
+    font-family:var(--mono);
+    font-size:13px;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink);
+    padding:8px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:border-color 0.2s, transform 0.15s;
+  }
+  .bag-btn:hover{ border-color:var(--gold); }
+
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:var(--ink);
+    font-size:22px;
+    cursor:pointer;
+  }
+
+  /* ============================================
+     HERO — the loop is the brand's argument.
+     A grid of repeated "ملال" cells = monotony.
+     One cell breaks the grid = the whole brand thesis.
+     ============================================ */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    padding:0 8vw;
+  }
+
+  .hero-pattern{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-wrap:wrap;
+    opacity:0.5;
+  }
+  .pattern-cell{
+    width:12.5%;
+    height:16.6%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--arabic);
+    font-size:22px;
+    color:var(--line);
+    border:1px solid rgba(255,255,255,0.02);
+    transition:color 0.3s;
+  }
+  .pattern-cell.break{
+    color:var(--gold);
+    font-size:64px;
+    transform:rotate(-8deg) scale(1.4);
+    z-index:2;
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:3;
+    max-width:640px;
+  }
+
+  .hero h1{ font-size:clamp(40px,7vw,84px); margin-bottom:20px; }
+  .hero-sub{
+    color:var(--ink-dim);
+    font-size:17px;
+    max-width:440px;
+    margin-bottom:34px;
+  }
+  .hero-sub .ar{ font-family:var(--arabic); color:var(--gold); font-size:19px; }
+
+  .btn-primary{
+    display:inline-block;
+    background:var(--gold);
+    color:#14151f;
+    font-family:var(--mono);
+    font-weight:500;
+    font-size:14px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:16px 32px;
+    border-radius:4px;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(214,168,60,0.25);
+  }
+
+  /* ============================================
+     TICKER
+     ============================================ */
+  .ticker{
+    background:var(--gold);
+    color:#14151f;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:12px 0;
+  }
+  .ticker-track{
+    display:inline-block;
+    font-family:var(--mono);
+    font-weight:500;
+    font-size:14px;
+    letter-spacing:2px;
+    animation:scroll 22s linear infinite;
+  }
+  @keyframes scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+
+  /* ============================================
+     PRODUCT GRID (flexbox + cards)
+     ============================================ */
+  .drop-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    margin-bottom:48px;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .drop-head h2{ font-size:clamp(28px,4vw,44px); }
+
+  .product-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    flex:1 1 250px;
+    max-width:280px;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    border-color:var(--gold);
+    box-shadow:0 18px 40px rgba(0,0,0,0.35);
+  }
+
+  .card-swatch{
+    height:200px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--arabic);
+    font-size:40px;
+    color:rgba(237,228,211,0.15);
+  }
+
+  .card-body{ padding:18px; }
+
+  .card-tag{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:1px;
+    color:var(--rust);
+    border:1px solid var(--rust);
+    padding:2px 8px;
+    border-radius:10px;
+    margin-bottom:10px;
+  }
+
+  .card-name{ font-size:16px; font-weight:600; margin-bottom:6px; }
+  .card-price{ font-family:var(--mono); color:var(--ink-dim); font-size:14px; margin-bottom:14px; }
+
+  .add-btn{
+    width:100%;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:11px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  }
+  .add-btn:hover{ background:var(--gold); color:#14151f; border-color:var(--gold); }
+
+  /* ============================================
+     STORY (parent/child selector demo)
+     ============================================ */
+  .story{
+    display:flex;
+    align-items:center;
+    gap:70px;
+    flex-wrap:wrap;
+  }
+  .story-text{ flex:1 1 380px; }
+  .story-text h2{ font-size:clamp(30px,4vw,46px); margin:8px 0 20px; }
+  .story-text h2 .ar{ font-family:var(--arabic); color:var(--gold); }
+  .story-text p{ color:var(--ink-dim); max-width:480px; margin-bottom:16px; }
+
+  .story-pattern{
+    flex:1 1 280px;
+    height:340px;
+    border-radius:16px;
+    background:
+      repeating-linear-gradient(135deg, var(--bg-alt) 0 40px, var(--card) 40px 80px);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .story-pattern span{
+    font-family:var(--arabic);
+    font-size:110px;
+    color:var(--gold);
+  }
+
+  /* ============================================
+     NEWSLETTER (forms)
+     ============================================ */
+  .newsletter{
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+  .newsletter h2{ font-size:clamp(26px,4vw,40px); margin-bottom:28px; }
+
+  #newsletterForm{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    max-width:460px;
+    margin:0 auto;
+  }
+  #newsletterForm label{ display:none; } /* visually hidden but present for accessibility */
+
+  #email{
+    flex:1 1 240px;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--ink);
+    padding:14px 16px;
+    border-radius:6px;
+    font-family:var(--body);
+    font-size:14px;
+  }
+  #email:focus{ outline:2px solid var(--gold); border-color:var(--gold); }
+
+  #newsletterForm button{
+    background:var(--gold);
+    color:#14151f;
+    border:none;
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:14px 22px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:transform 0.2s ease;
+  }
+  #newsletterForm button:hover{ transform:translateY(-2px); }
+
+  #formMsg{
+    margin-top:16px;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--gold);
+    min-height:18px;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px 8vw;
+    flex-wrap:wrap;
+    gap:14px;
+    color:var(--ink-dim);
+    font-family:var(--mono);
+    font-size:12px;
+  }
+  footer .foot-logo{ font-family:var(--arabic); color:var(--gold); font-size:20px; }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 800px){
+    .links{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--bg);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      padding:20px 8vw;
+      display:none;
+    }
+    .links a{ padding:10px 0; }
+    .menu-toggle{ display:block; }
+    .story{ flex-direction:column; }
+    section{ padding:70px 6vw; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{ animation:none; }
+    .card, .btn-primary, .add-btn{ transition:none; }
+  }
